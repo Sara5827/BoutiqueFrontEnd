@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Sidebar.css';
+import {getCustomers} from '../../ActorsFunctions';
 
 function Sidebar() {
+    useEffect(() => {
+        getCustomers().then((res) => {
+          console.log(res);
+        });
+      }, []);
     return (
         <>
            <div class="table-title" >

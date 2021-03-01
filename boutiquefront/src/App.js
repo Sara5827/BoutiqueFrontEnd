@@ -5,12 +5,14 @@ import AcheteurProduits from './components/Acheteur/Produits';
 import AcheteurProduitDetails from './components/Acheteur/Details';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import VendeurSidebar from './components/Vendeur/Sidebar';
+import { getCustomers } from "./ActorsFunctions";
 
 function App() {
   return (
     <>
       <Router>
        <Nav />
+       <getCustomers />
         <Switch>
             <Route path='/' exact component={Home} />
             <Route path='/acheteur/produits' component={AcheteurProduits} />
