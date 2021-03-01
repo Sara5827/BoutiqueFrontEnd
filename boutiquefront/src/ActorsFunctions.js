@@ -6,7 +6,6 @@ export const getCustomers = () => {
       .get("http://localhost/3wa/RFC-Digital/Boutique/public/api/customers", {
         headers: {
           "content-type": "application/json",
-          Authorization: localStorage.token,
         },
       })
       .then((response) => {

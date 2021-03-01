@@ -3,15 +3,25 @@ import './Sidebar.css';
 import {getCustomers} from '../../ActorsFunctions';
 
 function Sidebar() {
+    const [ customers, setCustomers ] = useState ([]);
+    
+    const handleDelete = (id) => {
+       console.log(id);
+    }
+
     useEffect(() => {
         getCustomers().then((res) => {
-          console.log(res);
+          setCustomers(res.data);
+          console.log(res.data);
         });
       }, []);
+
+
+ 
     return (
         <>
-           <div class="table-title" >
-				<div class="row">
+           <div class="table-title" >  
+        	<div class="row">
 					<div class="col-sm-6">
 						<h2>Vendeur <b>Employees</b></h2>
 					</div>
@@ -33,33 +43,24 @@ function Sidebar() {
             </tr>
         </thead>
         <tbody>
-            <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>
-            <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
-            <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
-			</td>
-            </tr>
-            <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>
-            <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
-            <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
-			</td>
-            </tr>
-            <tr>
-            <th scope="row">3</th>
-            <td colspan="2">Larry the Bird</td>
-            <td>
-            <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
-            <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
-			</td>
-            </tr>
+        {customers.map((item, index) => (
+            <>
+              
+              <tr key={index}>
+                <td>{item.id}</td>
+                <td>{item.first_name}</td>
+                <td>{item.last_name}</td>
+                <td>
+                <a href="#edit" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
+                <a href="#delete" id={item.id} onClick={handleDelete} key={item.id}  class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
+                </td>
+              </tr>
+              
+            </>
+          ))}
         </tbody>   
+          <tbody>        
+        </tbody>
     </table>
 
             </div>
