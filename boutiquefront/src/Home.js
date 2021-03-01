@@ -18,7 +18,7 @@ function Home() {
                     Some quick example text to build on the card title and make up the bulk of the
                     card's content.
                     </p>
-                    <a href="" className="btn btn-primary">Consulter</a>
+                    <a href="/vendeur/sidebar" className="btn btn-primary">Consulter</a>
                 </div>
             </div>
              </div>
