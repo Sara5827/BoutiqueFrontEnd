@@ -57,9 +57,9 @@ function Sidebar() {
             <>
               
               <tr key={index}>
-                <td>{item.id}</td>
-                <td>{item.first_name}</td>
-                <td>{item.last_name}</td>
+                {/* <td>{item.id}</td> */}
+                <td>{item.title}</td>
+                <td>{item.description}</td>
                 <td>
                 <a href="#edit" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
                 <a href="#delete" id={item.id} onClick={handleDelete} key={item.id}  class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>

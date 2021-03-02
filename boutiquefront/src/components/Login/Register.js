@@ -11,11 +11,11 @@ function Register() {
 
     const history = useHistory(); 
 
-    // useEffect(()=>{
-    //     if (localStorage.getItem('user-info')) {
-    //         history.push("/add")
-    //     }
-    // }, [])
+    useEffect(()=>{
+        if (localStorage.getItem('user-info')) {
+            history.push("/register")
+        }
+    }, [])
     
     const API_URL = "http://localhost:8000/api/register";
     const register = (username, email, password) => {
