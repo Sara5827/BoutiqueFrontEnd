@@ -6,6 +6,8 @@ import AcheteurProduitDetails from './components/Acheteur/Details';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import VendeurSidebar from './components/Vendeur/Sidebar';
 import { getCustomers } from "./ActorsFunctions";
+import Login from "./components/Login/Login";
+import Register from './components/Login/Register';
 
 function App() {
   return (
@@ -14,7 +16,9 @@ function App() {
        <Nav />
        <getCustomers />
         <Switch>
-            <Route path='/' exact component={Home} />
+            <Route path='/' exact component={Login} />
+            <Route path='/register'  component={Register} />
+            <Route path='/add'  component={Home} />
             <Route path='/acheteur/produits' component={AcheteurProduits} />
             <Route path='/acheteur/produit/detail' component={AcheteurProduitDetails} />
             <Route path='/vendeur/sidebar' component={VendeurSidebar} />

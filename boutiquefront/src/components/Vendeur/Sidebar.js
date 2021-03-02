@@ -1,14 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import './Sidebar.css';
 import {getCustomers} from '../../ActorsFunctions';
+import axios from "axios";
 
 function Sidebar() {
     const [ customers, setCustomers ] = useState ([]);
     
-    const handleDelete = (id) => {
-       console.log(id);
-    }
+    // const handleDelete = (id) => {
+    //    console.log(id);
+    // }
 
+    const handleDelete = (id) => {
+        let url = `http://localhost/3wa/RFC-Digital/Boutique/public/api/customers/${id}`
+
+        axios.delete(url).then(res => {
+            const del = customers.filter(customers => id !== customers.id)
+            setCustomers(del)
+            console.log('res', res)
+        })
+    }
     useEffect(() => {
         getCustomers().then((res) => {
           setCustomers(res.data);
