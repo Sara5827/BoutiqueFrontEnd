@@ -10,8 +10,11 @@ function Sidebar() {
     //    console.log(id);
     // }
 
-    const handleDelete = (id) => {
-        let url = `http://localhost/3wa/RFC-Digital/Boutique/public/api/customers/${id}`
+    const handleDelete = (event) => {
+
+        //  console.log(event.target.id);
+         const id = event.target.id;
+        let url = `http://localhost/3wa/RFC-Digital/Boutique/public/api/testdelete/${id}`
 
         axios.delete(url).then(res => {
             const del = customers.filter(customers => id !== customers.id)
@@ -47,8 +50,10 @@ function Sidebar() {
         <thead>
             <tr>
             <th scope="col">#</th>
-            <th scope="col">Name</th>
-            <th scope="col">Produits</th>
+            <th scope="col">produit</th>
+            <th scope="col">prix</th>
+            <th scope="col">description</th>
+            <th scope="col">image</th>
             <th scope="col">Actions</th>
             </tr>
         </thead>
@@ -57,12 +62,14 @@ function Sidebar() {
             <>
               
               <tr key={index}>
-                {/* <td>{item.id}</td> */}
+                <td>{item.id}</td>
                 <td>{item.title}</td>
+                <td>{item.prix}</td>
                 <td>{item.description}</td>
+                <td> <img src={`http://localhost/3wa/RFC-Digital/Boutique/public/${item.image}`} width="100px"  />  </td>
                 <td>
                 <a href="#edit" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
-                <a href="#delete" id={item.id} onClick={handleDelete} key={item.id}  class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
+                <button id={item.id} onClick={handleDelete} > delete  </button>
                 </td>
               </tr>
               

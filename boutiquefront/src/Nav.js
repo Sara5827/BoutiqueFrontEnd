@@ -1,6 +1,14 @@
-import React from 'react'
+import React from 'react';
+import { useHistory } from 'react-router-dom';
 
 function Nav() {
+    const history = useHistory();
+    const logout = () => {
+        localStorage.setItem("user-info", "");
+        history.push("/")
+
+    }
+
     return (
         <>
             <nav className="navbar navbar-expand-lg navbar-dark bg-primary text-white">
@@ -22,8 +30,8 @@ function Nav() {
                     <li className="nav-item dropdown">
                         <a className="nav-link dropdown-toggle" href="http://example.com" id="dropdown08" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">User</a>
                         <div className="dropdown-menu" aria-labelledby="dropdown08">
-                        <a className="dropdown-item" href="#">Login</a>
-                        <a className="dropdown-item" href="/">Logout</a>
+                        <a className="dropdown-item" href="/login">Login</a>
+                        <a className="dropdown-item" onClick={ logout }  href="/login">Logout</a>
                         </div>
                     </li>
                     </ul>

@@ -16,11 +16,11 @@ function App() {
        <Nav />
        <getCustomers />
         <Switch>
-            <Route path='/' exact component={Login} />
-            <Route path='/register'  component={Register} />
-            <Route path='/add'  component={Home} />
+            <Route path='/' exact component={Home} />
+            <Route path='/login' exact component={Login} />
+            <Route path='/register'  component={Register} /> 
             <Route path='/acheteur/produits' component={AcheteurProduits} />
-            <Route path='/acheteur/produit/detail' component={AcheteurProduitDetails} />
+            <Route path='/acheteur/produit/detail:id' component={AcheteurProduitDetails} />
             <Route path='/vendeur/sidebar' component={VendeurSidebar} />
         </Switch>   
      </Router>
