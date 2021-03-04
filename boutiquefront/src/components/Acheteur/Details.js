@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import StripeContainer from "../payement/StripeContainer";
 
 function Details(props) {
   const { productId } = useParams();
   const [product, setProduct] = useState({});
+  const [showItem, setShowItem] = useState(false)
 
   let url = `http://localhost:8000/api/products/${productId}`;
   const getProduct = async () => {
@@ -33,9 +35,10 @@ function Details(props) {
               <h3 class="mb-0">Featured post</h3>
               <div class="mb-1 text-muted">{product.prix}</div>
               <p class="card-text mb-auto">{product.description}</p>
-              <a href="#" class="stretched-link">
-                Continue reading
-              </a>
+              <div className="App">
+                <h1>The Spatula Store</h1>
+                {showItem ? <StripeContainer/> : <> <button onClick={() => setShowItem(true)}>payement</button></>}
+            </div>
             </div>
             <div class="col-auto d-none d-lg-block">
             <div class="card-image">
