@@ -1,89 +1,105 @@
-import React, { useEffect, useState } from 'react';
-import './Sidebar.css';
-import {getCustomers} from '../../ActorsFunctions';
+import React, { useEffect, useState } from "react";
+import "./Sidebar.css";
+import { getCustomers } from "../../ActorsFunctions";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
+import Addproduct from "./Addproduct";
 
 function Sidebar() {
-    const [ customers, setCustomers ] = useState ([]);
-    
-    // const handleDelete = (id) => {
-    //    console.log(id);
-    // }
+  const [customers, setCustomers] = useState([]);
+  const history = useHistory();
 
-    const handleDelete = (event) => {
+  const editProduct = (event) => {
+    const id = event.target.id;
+    // console.log(event.target.id);
+    history.push({
+      pathname: "/vendeur/produits/edit/",
+    });
+  };
 
-        //  console.log(event.target.id);
-         const id = event.target.id;
-        let url = `http://localhost/3wa/RFC-Digital/Boutique/public/api/testdelete/${id}`
+  const handleAdd = (event) => {
+    // console.log(event);
+    let url = `http://localhost:8000/api/teststore`;
+    axios.get(url).then((res) => {
+      console.log(res);
+    });
+  };
 
-        axios.delete(url).then(res => {
-            const del = customers.filter(customers => id !== customers.id)
-            setCustomers(del)
-            console.log('res', res)
-        })
-    }
-    useEffect(() => {
-        getCustomers().then((res) => {
-          setCustomers(res.data);
-          console.log(res.data);
-        });
-      }, []);
+  const handleDelete = (event) => {
+    const id = event.target.id;
+    let url = `http://localhost:8000/api/testdelete/${id}`;
 
+    axios.delete(url).then((res) => {
+      const del = customers.filter((customers) => id !== customers.id);
+      setCustomers(del);
+      console.log("res", res);
+    });
+  };
 
- 
-    return (
-        <>
-           <div class="table-title" >  
-        	<div class="row">
-					<div class="col-sm-6">
-						<h2>Vendeur <b>Employees</b></h2>
-					</div>
-					<div class="col-sm-6">
-						<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons"></i> <span>Add Produit</span></a>
-						{/* <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons"></i> <span>Delete</span></a>						 */}
-					</div>
-				</div>
-			</div>
-            {/* Table */}
-            <div >
-            <table width="" class="table" >
-        <thead>
+  useEffect(() => {
+    getCustomers().then((res) => {
+      setCustomers(res.data);
+      console.log(res.data);
+    });
+  }, []);
+
+  return (
+    <>
+      <Addproduct />
+
+      {/* Table */}
+      <div>
+        <table width="" className="table">
+          <thead>
             <tr>
-            <th scope="col">#</th>
-            <th scope="col">produit</th>
-            <th scope="col">prix</th>
-            <th scope="col">description</th>
-            <th scope="col">image</th>
-            <th scope="col">Actions</th>
+              <th scope="col">#</th>
+              <th scope="col">produit</th>
+              <th scope="col">prix</th>
+              <th scope="col">description</th>
+              <th scope="col">image</th>
+              <th scope="col">Actions</th>
             </tr>
-        </thead>
-        <tbody>
-        {customers.map((item, index) => (
-            <>
-              
-              <tr key={index}>
-                <td>{item.id}</td>
-                <td>{item.title}</td>
-                <td>{item.prix}</td>
-                <td>{item.description}</td>
-                <td> <img src={`http://localhost/3wa/RFC-Digital/Boutique/public/${item.image}`} width="100px"  />  </td>
-                <td>
-                <a href="#edit" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
-                <button id={item.id} onClick={handleDelete} > delete  </button>
-                </td>
-              </tr>
-              
-            </>
-          ))}
-        </tbody>   
-          <tbody>        
-        </tbody>
-    </table>
-
-            </div>
-          
-        </>
-    )
+          </thead>
+          <tbody>
+            {customers.map((item, index) => (
+              <>
+                <tr key={index}>
+                  <td>{item.id}</td>
+                  <td>{item.title}</td>
+                  <td>{item.prix}</td>
+                  <td>{item.description}</td>
+                  <td>
+                    {" "}
+                    <img
+                      src={`http://localhost:8000/${item.image}`}
+                      width="100px"
+                    />{" "}
+                  </td>
+                  <td>
+                    <button
+                      type="button"
+                      data-bs-toggle="modal"
+                      data-bs-target="#exampleModal"
+                      variant="primary"
+                      id={item.id}
+                      onClick={editProduct}
+                    >
+                      Edit
+                    </button>
+                    <button id={item.id} onClick={handleDelete}>
+                      {" "}
+                      delete{" "}
+                    </button>
+                  </td>
+                </tr>
+              </>
+            ))}
+          </tbody>
+          <tbody></tbody>
+        </table>
+      </div>
+    </>
+  );
 }
 
-export default Sidebar
+export default Sidebar;

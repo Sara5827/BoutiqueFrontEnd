@@ -3,7 +3,7 @@ import axios from "axios";
 export const getCustomers = () => {
     
     return axios
-      .get("http://localhost/3wa/RFC-Digital/Boutique/public/api/customers", {
+      .get("http://localhost:8000/api/customers", {
         headers: {
           "content-type": "application/json",
         },
