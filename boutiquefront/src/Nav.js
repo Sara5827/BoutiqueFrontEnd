@@ -1,5 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 
 function Nav() {
     const history = useHistory();
@@ -19,13 +20,13 @@ function Nav() {
                 <div className="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
                     <ul className="navbar-nav">
                     <li className="nav-item active">
-                        <a className="nav-link" href="/"> Boutique <span className="sr-only">(current)</span></a>
+                        <Link className="nav-link" to="/"> Boutique <span className="sr-only">(current)</span></Link>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="#">Vendeur</a>
+                        <Link className="nav-link" to="/vendeur/sidebar">Vendeur </Link>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link disabled" href="#">Acheteur</a>
+                        <Link className="nav-link" to="/acheteur/produits">Acheteur</Link>
                     </li>
                     <li className="nav-item dropdown">
                         <a className="nav-link dropdown-toggle" href="http://example.com" id="dropdown08" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">User</a>

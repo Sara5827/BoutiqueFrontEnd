@@ -39,7 +39,7 @@ function Details(props) {
               
               <div className="card-text mt-auto">
                 <h3>Payement</h3>
-                {showItem ? <StripeContainer/> : <> <button onClick={() => setShowItem(true)}>Acheter Votre Produit</button></>}
+                {showItem ? <StripeContainer/> : <> <button class="btn btn-primary" onClick={() => setShowItem(true)}>Add card </button></>}
             </div>
             </div>
             <div class="col-auto d-none d-lg-block" id="detailimage">

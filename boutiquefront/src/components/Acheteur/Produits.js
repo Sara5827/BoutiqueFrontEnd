@@ -19,9 +19,9 @@ function Produits() {
   }, []);
 
   return (
-    <div className="row justify-content-center" id="produits-card">
+    <div className="row justify-content-center " id="produits-card">
       {customers.map((item, index) => (
-        <div class="col-sm-4">
+        <div class="col-sm-4 mt-5">
           <div class="card mb-2" key={index}>
           <Link to={`/acheteur/produit/detail${item.id}`}>
             <div class="card-image">
@@ -33,14 +33,14 @@ function Produits() {
             </div>
           </Link>
               
-            <div class="card-body">
+            <div class="card-body ">
               <div class="card-title">
                 <h4>
                   {item.title}
                 </h4>
                 <h5> <small> {item.prix} Dh</small> </h5>
               </div>
-              <div class="card-excerpt">
+              <div class="card-excerpt" id="produits-description">
                 <p> {item.description}</p>
               </div>
               <div class="card-date">

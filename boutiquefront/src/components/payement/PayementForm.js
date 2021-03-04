@@ -67,15 +67,12 @@ export default function PaymentForm() {
                     <CardElement options={CARD_OPTIONS}/>
                 </div>
             </fieldset>
-            <button>Acheter</button>
+            <button class="btn btn-primary m-2">Acheter</button>
         </form>
         :
         <div class="alert alert-primary" role="alert">
-             Votre paiement à été traité avec succès
+             Votre paiement à été traité avec succès!
         </div>
-    //    <div>
-    //        <h2>Votre paiement à été traité avec succès</h2>
-    //    </div> 
         }
             
         </>

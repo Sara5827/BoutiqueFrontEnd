@@ -26,10 +26,18 @@ function Register() {
   };
 
   return (
+
+
     <>
-      <div className="row col-sm-6 offset-sm-3" id="Body">
+      <div class="card mb-3" id='cardlogin'>
+        <div class="row" >
+          <div class="col-md-6">
+            <img src="https://image.freepik.com/vecteurs-libre/fond-ville-nuit-futuriste_52683-8651.jpg" Width="100%" alt="..." />
+          </div>
+          <div class="col-md-6">
+          <div className="row m-5 " id="Body">
         <div className="medium-5 columns left">
-          <h4>Register</h4>
+          <h2>Register</h2>
 
           <label>Name</label>
           <input
@@ -73,11 +81,15 @@ function Register() {
             Register{" "}
           </button>
           <br />
-          <a href="/signup">Registration</a>
+          <a href="/login">Login</a>
         </div>
+      </div>
+      </div>
+      </div>
       </div>
     </>
   );
+
 }
 
 export default Register;

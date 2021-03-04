@@ -222,3 +222,6 @@ table.table .avatar {
 .modal form label {
 	font-weight: normal;
 }	
+#produits-description{
+	height: 100px;
+}

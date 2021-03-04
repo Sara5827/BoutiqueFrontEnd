@@ -8,7 +8,7 @@ function Home() {
           <div className="col-sm-4">
              <div className="card">
                 <img
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbSeGxOt5mBR32wSFlyzMA8fhquCujljyD6g&usqp=CAU"
+                    src="https://image.freepik.com/vecteurs-libre/vendeur-femme-client-illustration-shop-store-market-shopping-commerce-retail-acheter-payer_24877-60375.jpg"
                     className="card-img-top"
                     alt="..."
                 />
@@ -20,11 +20,14 @@ function Home() {
              </div>
           <div className="col-sm-4">
             <div className="card">
-                <img
-                    src="https://image.freepik.com/vecteurs-libre/panier-illustration_23-2147513449.jpg"
-                    className="card-img-top"
+                 <div >
+                 <img 
+                    id="imagehome"
+                    src="https://clipartart.com/images/banco-de-imagens-gratis-clipart.jpg"
+                    className="card-img-top w-100"
                     alt="..."
                 />
+                 </div>
                 <div className="card-body d-flex justify-content-center">
                     {/* <h5 className="card-title">Acheteur</h5> */}
                     <Link to="/acheteur/produits" className="btn btn-primary"> Consulter la page des acheteurs</Link>
