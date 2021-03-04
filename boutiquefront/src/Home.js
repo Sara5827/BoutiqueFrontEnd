@@ -12,13 +12,9 @@ function Home() {
                     className="card-img-top"
                     alt="..."
                 />
-                <div className="card-body">
-                    <h5 className="card-title">Vendeur</h5>
-                    <p className="card-text">
-                    Some quick example text to build on the card title and make up the bulk of the
-                    card's content.
-                    </p>
-                    <a href="/vendeur/sidebar" className="btn btn-primary">Consulter</a>
+                <div className="card-body d-flex justify-content-center">
+                    {/* <h5 className="card-title">Vendeur</h5> */}
+                    <Link to="/vendeur/sidebar" className="btn btn-primary">Consulter la page des vendeurs</Link>
                 </div>
             </div>
              </div>
@@ -29,13 +25,9 @@ function Home() {
                     className="card-img-top"
                     alt="..."
                 />
-                <div className="card-body">
-                    <h5 className="card-title">Acheteur</h5>
-                    <p className="card-text">
-                    Some quick example text to build on the card title and make up the bulk of the
-                    card's content.
-                    </p>
-                    <a href="/acheteur/produits" className="btn btn-primary">Consulter</a>
+                <div className="card-body d-flex justify-content-center">
+                    {/* <h5 className="card-title">Acheteur</h5> */}
+                    <Link to="/acheteur/produits" className="btn btn-primary"> Consulter la page des acheteurs</Link>
                 </div>
             </div>
          </div>

@@ -16,3 +16,6 @@
     margin: 0 auto;
     width: 80%;
   }
+  #detailimage{
+    width: 50%!important;
+  }

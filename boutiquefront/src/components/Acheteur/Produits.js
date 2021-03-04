@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from "react";
 import "./style.css";
 import { getCustomers } from "../../ActorsFunctions";
+import { useHistory } from "react-router-dom";
 
 import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 
 function Produits() {
   const [customers, setCustomers] = useState([]);
+  const [item, setItem] = useState([]);
+  const history = useHistory();
 
-  useEffect(() => {
+
+     useEffect(() => {
     getCustomers().then((res) => {
       setCustomers(res.data);
       console.log(res.data);
@@ -19,6 +23,7 @@ function Produits() {
       {customers.map((item, index) => (
         <div class="col-sm-4">
           <div class="card mb-2" key={index}>
+          <Link to={`/acheteur/produit/detail${item.id}`}>
             <div class="card-image">
               <img
                 width="100%"
@@ -26,19 +31,21 @@ function Produits() {
                 alt="Orange"
               />
             </div>
+          </Link>
+              
             <div class="card-body">
-              <div class="card-date">
-                <time>{item.updated_at}</time>
-              </div>
               <div class="card-title">
                 <h4>
-                  {item.title} : <small>prix {item.prix}</small>
+                  {item.title}
                 </h4>
+                <h5> <small> {item.prix} Dh</small> </h5>
               </div>
               <div class="card-excerpt">
                 <p> {item.description}</p>
               </div>
-              <Link to={`/acheteur/produit/detail${item.id}`}> Consulter </Link>
+              <div class="card-date">
+                <time>{item.updated_at}</time>
+              </div>
             </div>
           </div>
         </div>

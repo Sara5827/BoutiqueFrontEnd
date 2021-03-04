@@ -32,15 +32,17 @@ function Details(props) {
               <strong class="d-inline-block mb-2 text-primary">
                 {product.title}{" "}
               </strong>
-              <h3 class="mb-0">Featured post</h3>
-              <div class="mb-1 text-muted">{product.prix}</div>
-              <p class="card-text mb-auto">{product.description}</p>
-              <div className="App">
-                <h1>The Spatula Store</h1>
-                {showItem ? <StripeContainer/> : <> <button onClick={() => setShowItem(true)}>payement</button></>}
+              <h3 class="mb-0"> {product.title}</h3>
+              <div class="mb-1 ">{product.updated_at}</div>
+              <p class="card-text">{product.description}</p>
+              <h3 class="mb-0"> {product.prix} </h3>
+              
+              <div className="card-text mt-auto">
+                <h3>Payement</h3>
+                {showItem ? <StripeContainer/> : <> <button onClick={() => setShowItem(true)}>Acheter Votre Produit</button></>}
             </div>
             </div>
-            <div class="col-auto d-none d-lg-block">
+            <div class="col-auto d-none d-lg-block" id="detailimage">
             <div class="card-image">
               <img
                 width="100%"
@@ -48,12 +50,6 @@ function Details(props) {
                 alt="Orange"
               />
             </div>
-                {/* <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#55595c"></rect>
-                <text x="50%" y="50%" fill="#eceeef" dy=".3em">
-                  Thumbnail
-                </text> */}
-              
             </div>
           </div>
         </div>
